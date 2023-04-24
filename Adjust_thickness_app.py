@@ -41,11 +41,11 @@ if uploaded_file is not None:
     adjust_number = drawing_thickness - ply_thickness + finish_adjust
 
     if adjust_number < 0:
-        st.write('Your joints in your drawing will be increased by: ', adjust_number*-1, 'mm')
+        st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1), 'mm')
     elif adjust_number == 0:
         st.write('Your joints in your drawing will not be changed')
     else:
-        st.write('Your joints in your drawing will be reduced by: ', adjust_number, 'mm')
+        st.write('Your joints in your drawing will be reduced by: ', round(adjust_number), 'mm')
 
     # button to start converting process
     if st.button('Adjust .DXF'):
@@ -64,3 +64,4 @@ if uploaded_file is not None:
             #Load the binary data from the file as f then add it to a download button
             with open(uploaded_file_mod, 'rb') as f:
                 st.download_button('Download adjusted file', f,  uploaded_file_mod)
+                st.balloons()
