@@ -43,7 +43,7 @@ if uploaded_file is not None:
     if adjust_number < 0:
         st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1,2), 'mm')
     elif adjust_number == 0:
-        st.write('Your joints in your drawing will not be changed')
+        st.write('Your drawing will not be changed')
     else:
         st.write('Your joints in your drawing will be reduced by: ', round(adjust_number,2), 'mm')
 
