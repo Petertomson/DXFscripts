@@ -25,10 +25,11 @@ if uploaded_file is not None:
 if uploaded_file is not None:
     ply_thickness_str = st.text_input('Ply thickness', '18')
 
-    drawing_thickness = st.number_input('Enter the width of the slots in your drawing as a decimal: ', 18)
+    drawing_thickness_str = st.text_input('Enter the width of the slots in your drawing as a decimal: ', '18')
 
     ply_thickness = float(ply_thickness_str)
-
+    drawing_thickness = float(drawing_thickness_str)
+    
     finish_option = st.selectbox(
         'What finish are you going to use?',
         ('Varnish', 'Stain', 'Oil', 'Osmo', 'None'))
