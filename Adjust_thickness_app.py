@@ -41,11 +41,11 @@ if uploaded_file is not None:
     adjust_number = drawing_thickness - ply_thickness + finish_adjust
 
     if adjust_number < 0:
-        st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1), 'mm')
+        st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1,2), 'mm')
     elif adjust_number == 0:
         st.write('Your joints in your drawing will not be changed')
     else:
-        st.write('Your joints in your drawing will be reduced by: ', round(adjust_number), 'mm')
+        st.write('Your joints in your drawing will be reduced by: ', round(adjust_number,2), 'mm')
 
     # button to start converting process
     if st.button('Adjust .DXF'):
