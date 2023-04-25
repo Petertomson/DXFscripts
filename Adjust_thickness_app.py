@@ -36,9 +36,11 @@ if uploaded_file is not None:
 
     st.write('Your finish will add: ', finish_adjust, 'mm')
 
+    custom_adjust = st.slider('Customise the fit', -0.5, 0.5, 0, 0.01)
+
     #Sort out adjustment values#
-    adjust_val = (ply_thickness - finish_adjust) / drawing_thickness
-    adjust_number = drawing_thickness - ply_thickness + finish_adjust
+    adjust_val = (ply_thickness - finish_adjust - custom_adjust) / drawing_thickness
+    adjust_number = drawing_thickness - ply_thickness + finish_adjust + custom_adjust
 
     if adjust_number < 0:
         st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1,2), 'mm')
