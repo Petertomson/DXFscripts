@@ -79,7 +79,7 @@ if uploaded_file is not None:
                 entity.scale(adjust_val, adjust_val, 1)
             #Sort out the file name
             basename = uploaded_file_path.removesuffix('.dxf')
-            uploaded_file_mod = basename + " " + str(round(adjust_number,3)) + "mm.dxf"
+            uploaded_file_mod = basename + " " + str(round(ply_thickness - adjust_number,3)) + "mm.dxf"
             doc.saveas(uploaded_file_mod)
             #Load the binary data from the file as f then add it to a download button
             with open(uploaded_file_mod, 'rb') as f:
