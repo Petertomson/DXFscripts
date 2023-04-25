@@ -1,11 +1,8 @@
 import os
 import ezdxf
 import streamlit as st
-import streamlit.components.v1 as components
-st.set_page_config(page_title="DXF Viewer", page_icon="📐")
-white_background = "<style>:root {background-color: white;}</style>"
-components.html(white_background)
 
+st.set_page_config(page_title="DXF Viewer", page_icon="📐")
 st.title('DXF adjuster')
 
 st.write('This app is designed to help adjust drawings so friction joints are not too tight or too loose. To do this the app scales the drawing.')
