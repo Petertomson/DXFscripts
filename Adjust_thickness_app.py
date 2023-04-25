@@ -7,7 +7,7 @@ st.title('DXF adjuster')
 
 st.write('This app is designed to help adjust drawings so friction joints are not too tight or too loose. To do this the app scales the drawing.')
 uploaded_file = st.file_uploader("To start choose a .dxf file", type=['dxf'])
-
+st.divider()
 if uploaded_file is not None:
     fullname = uploaded_file.name
     folder_path = '.'
@@ -35,7 +35,7 @@ if uploaded_file is not None:
         finish_adjust = 0.1
 
     st.write('Your finish will add: ', finish_adjust, 'mm')
-
+    st.divider()
     custom_adjust_str = st.select_slider(
         'Customise the fit',
         options=['Very tight', 'Tight', 'Slightly tight', 'No change', 'Slightly loose', 'Loose', 'Very loose'], value='No change')
@@ -55,17 +55,17 @@ if uploaded_file is not None:
         custom_adjust = 0.3
 
     st.write('This will change the joints by ', custom_adjust, 'mm')
-
+    st.divider()
     #Sort out adjustment values#
     adjust_val = (ply_thickness - finish_adjust + custom_adjust) / drawing_thickness
     adjust_number = drawing_thickness - ply_thickness + finish_adjust - custom_adjust
 
     if adjust_number < 0:
-        st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1,2), 'mm')
+        st.write('Altogether the joints in your drawing will be increased by: ', round(adjust_number*-1,2), 'mm')
     elif adjust_number == 0:
         st.write('Your drawing will not be changed')
     else:
-        st.write('Your joints in your drawing will be reduced by: ', round(adjust_number,2), 'mm')
+        st.write('Altogether the joints in your drawing will be reduced by: ', round(adjust_number,2), 'mm')
 
     # button to start converting process
     if st.button('Adjust .DXF'):
