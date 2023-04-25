@@ -74,7 +74,7 @@ if uploaded_file is not None:
             doc = ezdxf.readfile(uploaded_file_path)
 
             # Select all elements and scale
-            st.write('Your drawing will be scaled by ', round(adjust_val,2))
+            st.write('Your drawing will be scaled by ', round(adjust_val,3))
             for entity in doc.modelspace():
                 entity.scale(adjust_val, adjust_val, 1)
             #Sort out the file name
