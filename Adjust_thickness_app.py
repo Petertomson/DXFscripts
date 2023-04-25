@@ -22,7 +22,7 @@ if uploaded_file is not None:
     #Finish choices
     finish_option = st.selectbox(
         'What finish are you going to use?',
-        ('Varnish', 'Stain', 'Oil', 'Osmo', 'None'))
+        ('None', 'Stain', 'Oil', 'Osmo', 'Varnish'))
     if finish_option == 'None':
         finish_adjust = 0.0
     elif finish_option == 'Stain':
@@ -36,11 +36,29 @@ if uploaded_file is not None:
 
     st.write('Your finish will add: ', finish_adjust, 'mm')
 
-    custom_adjust = st.slider('Customise the fit', -0.5, 0.5, 0, 0.01)
+    custom_adjust_str = st.select_slider(
+        'Customise the fit',
+        options=['Very tight', 'Tight', 'Slightly tight', 'No change', 'Slightly loose', 'Loose', 'Very loose'], value='No change')
+    if custom_adjust_str == 'Very tight':
+        custom_adjust = -0.3
+    elif custom_adjust_str == 'Tight':
+        custom_adjust = -0.2
+    elif custom_adjust_str == 'Slightly tight':
+        custom_adjust = -0.1
+    elif custom_adjust_str == 'No change':
+        custom_adjust = 0.0
+    elif custom_adjust_str == 'Slightly loose':
+        custom_adjust = 0.1
+    elif custom_adjust_str == 'Loose':
+        custom_adjust = 0.2
+    elif custom_adjust_str == 'Very loose':
+        custom_adjust = 0.3
+
+    st.write('This will change the joints by ', custom_adjust, 'mm')
 
     #Sort out adjustment values#
-    adjust_val = (ply_thickness - finish_adjust - custom_adjust) / drawing_thickness
-    adjust_number = drawing_thickness - ply_thickness + finish_adjust + custom_adjust
+    adjust_val = (ply_thickness - finish_adjust + custom_adjust) / drawing_thickness
+    adjust_number = drawing_thickness - ply_thickness + finish_adjust - custom_adjust
 
     if adjust_number < 0:
         st.write('Your joints in your drawing will be increased by: ', round(adjust_number*-1,2), 'mm')
