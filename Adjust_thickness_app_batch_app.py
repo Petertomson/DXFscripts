@@ -3,10 +3,10 @@ import ezdxf
 import streamlit as st
 import zipfile
 
-st.set_page_config(page_title="DXF Viewer", page_icon="📐")
-st.title('DXF adjuster')
+st.set_page_config(page_title="Batch DXF Viewer", page_icon="📐")
+st.title('Batch DXF adjuster')
 
-st.write('This app is designed to help adjust drawings so friction joints are not too tight or too loose. To do this the app scales the drawing.')
+st.write('This app is designed to help adjust drawings so friction joints are not too tight or too loose. To do this the app scales the drawing. Using the information you have given the app will create a set of 10 variants which you can then download')
 uploaded_file = st.file_uploader("To start choose a .dxf file", type=['dxf'])
 st.divider()
 if uploaded_file is not None:
@@ -96,12 +96,12 @@ if uploaded_file is not None:
                 # Set the units to mm
                 # doc.header['$INSUNITS'] = ezdxf.lldxf.UNITS['mm']
 
-                if adjust_number < 0:
-                    uploaded_file_mod = basename + " " + str(ply_thickness) + " " + str(adjust_number) + "mm.dxf"
-                elif adjust_number == 0:
-                    uploaded_file_mod = basename + " " + str(ply_thickness) + " " + ".dxf"
+                if j < 0:
+                    uploaded_file_mod = basename + " " + str(ply_thickness) + "mm " + str(round(adjust_number, 2)) + "mm (" + str(j/20) + " variant).dxf"
+                elif j == 0:
+                    uploaded_file_mod = basename + " " + str(ply_thickness) + "mm " + str(round(adjust_number, 2)) + " (base).dxf"
                 else:
-                    uploaded_file_mod = basename + " " + str(ply_thickness) + " +" + str(adjust_number) + "mm.dxf"
+                    uploaded_file_mod = basename + " " + str(ply_thickness) + "mm " + str(round(adjust_number, 2)) + "mm (+" + str(j/20) + " variant).dxf"
                 doc.saveas(uploaded_file_mod)
                 file_list.append(uploaded_file_mod)
                 j = j + 1
@@ -110,6 +110,15 @@ if uploaded_file is not None:
                 for x in file_list:
                     f.write(x)
             f.close()
+
+            adjust_number = drawing_thickness - ply_thickness + finish_adjust - custom_adjust
+            if adjust_number < 0:
+                st.write('Altogether the joints in your drawing will be increased by: ', round(adjust_number * -1, 2),'mm and 10 variants both smaller and larger will created')
+            elif adjust_number == 0:
+                st.write('Your drawing will not be changed')
+            else:
+                st.write('Altogether the joints in your drawing will be reduced by: ', round(adjust_number, 2), 'mm and 10 variants both smaller and larger will created')
+
             #Load the binary data from the file as f then add it to a download button
             with open('Adjusted_files.zip', 'rb') as f:
                 st.download_button('Download adjusted file', f,  'Adjusted_files.zip')
