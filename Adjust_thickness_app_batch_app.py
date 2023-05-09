@@ -113,11 +113,11 @@ if uploaded_file is not None:
 
             adjust_number = drawing_thickness - ply_thickness + finish_adjust - custom_adjust
             if adjust_number < 0:
-                st.write('Altogether the joints in your drawing will be increased by: ', round(adjust_number * -1, 2),'mm and 10 variants both smaller and larger will created')
+                st.write('Altogether the joints in your drawing will be increased by: ', round(adjust_number * -1, 2),'mm and 10 variants both smaller and larger will be created')
             elif adjust_number == 0:
-                st.write('Your drawing will not be changed')
+                st.write('Your drawing will not be changed but 10 variants both smaller and larger will be created')
             else:
-                st.write('Altogether the joints in your drawing will be reduced by: ', round(adjust_number, 2), 'mm and 10 variants both smaller and larger will created')
+                st.write('Altogether the joints in your drawing will be reduced by: ', round(adjust_number, 2), 'mm and 10 variants both smaller and larger will be created')
 
             #Load the binary data from the file as f then add it to a download button
             with open('Adjusted_files.zip', 'rb') as f:
