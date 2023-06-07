@@ -139,7 +139,6 @@ if uploaded_file is not None:
     # button to start converting process
     if adjust_val != 1:
         st.write('Altogether your drawing will be scaled by ', round(adjust_val, 3))
-        st.write(adjust_val, convert_factor)
         if st.button('Adjust .DXF'):
             if uploaded_file is not None:
                 #Read the file using ezdxf
