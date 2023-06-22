@@ -7,7 +7,7 @@ st.set_page_config(page_title="Sheet material and finish helper")
 st.title('Sheet material and finish helper')
 
 st.write(
-    'This app is designed to help you choose the sheet material and finish you should use, based on your answers to a series of questions')
+    'This app is designed to help you choose the sheet material and finish you should use for your CNC furniture, based on your answers to a series of questions')
 
 reference = ['structure', 'disassembly', 'visuals', 'cost', 'enviro', 'application']
 
