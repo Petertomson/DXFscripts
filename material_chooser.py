@@ -127,32 +127,32 @@ while j <= 5:
 material_list = ["Structural plywood","OSB (oriented strand board)","Marine plywood","Spruce plywood","Duraply plywood","Birch plywood"]
 winning_material_index = material_total_list.index(max(material_total_list))
 if winning_material_index == 0:
-    winning_material = "Structural plywood"
+    winning_material = "**Structural plywood**"
 elif winning_material_index == 1:
-    winning_material = "OSB (oriented strand board)"
+    winning_material = "**OSB (oriented strand board)**"
 elif winning_material_index == 2:
-    winning_material = "Marine plywood"
+    winning_material = "**Marine plywood**"
 elif winning_material_index == 3:
-    winning_material = "Spruce plywood"
+    winning_material = "**Spruce plywood**"
 elif winning_material_index == 4:
-    winning_material = "Duraply plywood"
+    winning_material = "**Duraply plywood**"
 elif winning_material_index == 5:
-    winning_material = "Birch plywood"
+    winning_material = "**Birch plywood**"
 
 finish_list = ['Untreated', 'Linseed oil', 'Hardwax', 'Paint', 'Wood stain', 'Varnish']
 winning_finish_index = finish_total_list.index(max(finish_total_list))
 if winning_finish_index == 0:
-    winning_finish = "No finish at all"
+    winning_finish = "**No finish at all**"
 elif winning_finish_index == 1:
-    winning_finish = "Linseed oil based treatment such as Rubio"
+    winning_finish = "**Linseed oil based treatment such as Rubio**"
 elif winning_finish_index == 2:
-    winning_finish = "Hardwax based treatment such as Osmo UV-protect"
+    winning_finish = "**Hardwax based treatment such as Osmo UV-protect**"
 elif winning_finish_index == 3:
-    winning_finish = "Shed paint such as Cuprinol garden shades"
+    winning_finish = "**Shed paint such as Cuprinol garden shades**"
 elif winning_finish_index == 4:
-    winning_finish = "Exterior wood stain such as Ronseal exterior wood stain"
+    winning_finish = "**Exterior wood stain such as Ronseal exterior wood stain**"
 elif winning_finish_index == 5:
-    winning_finish = "Exterior grade wood varnish"
+    winning_finish = "**Exterior grade wood varnish**"
 
 st.write("The best sheet material in your context is:",winning_material, "and it should be finished with:",winning_finish)
 
@@ -164,6 +164,8 @@ material_data = pd.DataFrame({
 })
 material_chart_min = min(material_total_list) - 2
 material_chart_max = max(material_total_list) + 2
+
+st.divider()
 
 st.altair_chart(alt.Chart(material_data).mark_bar(clip=True).encode(
     alt.X('Score', scale=alt.Scale(domain=(material_chart_min, material_chart_max))),
