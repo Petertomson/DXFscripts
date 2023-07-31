@@ -82,7 +82,7 @@ if uploaded_file is not None:
     #    finish_adjust = round(0.08 * metric_to_imperial_toggle,4)
     #elif finish_option == 'Varnish':
     #    finish_adjust = round(0.1 * metric_to_imperial_toggle,4)
-
+    finish_adjust = 0
     st.write('Your finish will add: ', finish_adjust, measurement_tag)
     st.divider()
     custom_adjust_str = st.select_slider(
