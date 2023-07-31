@@ -60,11 +60,13 @@ if uploaded_file is not None:
         file_conversion_tag = ''
         material_units = 'Metric'
         drawing_units = 'Metric'
-
+    drawing_thickness = st.number_input(
+        'Enter the width of the slots in your drawing as a decimal in ' + drawing_units + ' measurements:', 0.0, 200.0,
+        drawing_default, 0.01)
     st.divider()
 
     ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01)
-    drawing_thickness = st.number_input('Enter the width of the slots in your drawing as a decimal in ' + drawing_units + ' measurements:', 0.0, 200.0, drawing_default, 0.01)
+
 
     #Finish choices
     finish_option = st.selectbox(
