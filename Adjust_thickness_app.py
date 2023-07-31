@@ -69,19 +69,19 @@ if uploaded_file is not None:
 
 
     #Finish choices
-    finish_option = st.selectbox(
-        'What finish are you going to use?',
-        ('None', 'Stain', 'Oil', 'Osmo', 'Varnish'))
-    if finish_option == 'None':
-        finish_adjust = round(0.0 * metric_to_imperial_toggle,4)
-    elif finish_option == 'Stain':
-        finish_adjust = round(0.25 * metric_to_imperial_toggle,4)
-    elif finish_option == 'Oil':
-        finish_adjust = round(0.04 * metric_to_imperial_toggle,4)
-    elif finish_option == 'Osmo':
-        finish_adjust = round(0.08 * metric_to_imperial_toggle,4)
-    elif finish_option == 'Varnish':
-        finish_adjust = round(0.1 * metric_to_imperial_toggle,4)
+    #finish_option = st.selectbox(
+    #    'What finish are you going to use?',
+    #    ('None', 'Stain', 'Oil', 'Osmo', 'Varnish'))
+    #if finish_option == 'None':
+    #    finish_adjust = round(0.0 * metric_to_imperial_toggle,4)
+    #elif finish_option == 'Stain':
+    #    finish_adjust = round(0.25 * metric_to_imperial_toggle,4)
+    #elif finish_option == 'Oil':
+    #    finish_adjust = round(0.04 * metric_to_imperial_toggle,4)
+    #elif finish_option == 'Osmo':
+    #    finish_adjust = round(0.08 * metric_to_imperial_toggle,4)
+    #elif finish_option == 'Varnish':
+    #    finish_adjust = round(0.1 * metric_to_imperial_toggle,4)
 
     st.write('Your finish will add: ', finish_adjust, measurement_tag)
     st.divider()
