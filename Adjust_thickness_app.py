@@ -16,7 +16,7 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
 if uploaded_file is not None:
     #After uploading ask the user for the values for their sheet material and drawing. The decimal input option
-    measurement_bool = st.selectbox('Is the file you are using in **Metric** or **Imperial** measurements', ('Metric','Imperial'),0, help = 'Metric measurements are usually millimeters (mm) Imperial measurements are usually Inches \"\" ')
+    measurement_bool = st.selectbox('Is the file you are using in **Metric** or **Imperial** measurements', ('Metric','Imperial'),0, help = 'Metric measurements are usually millimeters (mm) Imperial measurements are usually Inches (\"\")')
     if measurement_bool == 'Imperial':
         conversion_bool = st.selectbox('Would you like to convert it to metric?', ('Yes', 'No'), 1)
     else:
@@ -65,7 +65,7 @@ if uploaded_file is not None:
         drawing_default, 0.01, help = 'Friction joints are slots in the drawing designed to be knocked together with a mallet')
     st.divider()
 
-    ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01)
+    ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01, help = 'SHeet material thickness can vary a lot even over one sheet! The ideal method is to measure your sheet material with calipers in several places and average the result')
 
 
     #Finish choices
@@ -87,7 +87,7 @@ if uploaded_file is not None:
     st.divider()
     custom_adjust_str = st.select_slider(
         'Customise the fit',
-        options=['Very tight', 'Tight', 'Slightly tight', 'No change', 'Slightly loose', 'Loose', 'Very loose'], value ='No change')
+        options=['Very tight', 'Tight', 'Slightly tight', 'No change', 'Slightly loose', 'Loose', 'Very loose'], value ='No change', help = 'This slider will slightly increase or reduce the slot width to made the joints stiffer or looser')
     if custom_adjust_str == 'Very tight':
         custom_adjust = round(-0.3 * metric_to_imperial_toggle,4)
     elif custom_adjust_str == 'Tight':
