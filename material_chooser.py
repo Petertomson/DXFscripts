@@ -160,7 +160,7 @@ elif winning_finish_index == 4:
 elif winning_finish_index == 5:
     winning_finish = "**Exterior grade wood varnish**"
 
-st.header("The best sheet material in your context is:",winning_material, "and it should be finished with:",winning_finish)
+st.header(("The best sheet material in your context is:",winning_material, "and it should be finished with:",winning_finish))
 
 
 
