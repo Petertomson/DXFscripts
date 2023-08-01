@@ -70,37 +70,43 @@ slider_strings = ["Bring it inside regularly", "Bring it inside during bad weath
 structure_slider = st.select_slider("Where will you store your furniture?",
                                     options=slider_values,
                                     value=3,
-                                    format_func=stringify)
+                                    format_func=stringify,
+                                    help = 'This is rough idea of how much of its life your furniture will spend outside.')
 st.divider()
 slider_strings = ["Never", "Only to move it", "Once a year", "A few times a year", "Very regularly"]
 disassembly_slider = st.select_slider("How often will you take apart your furniture?",
                                     options=slider_values,
                                     value=3,
-                                    format_func=stringify)
+                                    format_func=stringify,
+                                    help = 'Some finishes are smoother than others and make it more convenient to dissassemble the furniture.')
 st.divider()
 slider_strings = ["Not important at all", "Not very important", "I don't mind either way", "Quite important", "Very important"]
 visual_slider = st.select_slider("How important is it you that your furniture stays looking brand new?",
                                     options=slider_values,
                                     value=3,
-                                    format_func=stringify)
+                                    format_func=stringify,
+                                    help = 'Clear finishes like oil or varnish will protect the furniture but might discolour or stain slightly over time.')
 st.divider()
 slider_strings = ["Expensive but long-lasting", "Quite expensive but robust", "Try to balance cost and longevity", "Quite cheap and quite robust", "Very cheap but short-lived"]
 cost_slider = st.select_slider("More expensive sheet material can last longer. With that in mind would you like cheaper and short-lived or more expensive and long-lasting furniture",
                                     options=slider_values,
                                     value=3,
-                                    format_func=stringify)
+                                    format_func=stringify,
+                                    help = 'There is always a balance between cost and longevity but in our experience there are some cheap products that last surprisingly well and some expensive ones that are short-lived.')
 st.divider()
 slider_strings = ["Doesn't matter at all", "Not very concerned", "Neutral", "Slightly concerned", "Very concerned"]
 enviro_slider = st.select_slider("Some sheet materials and finishes can have a large impact on the environment and can be hazardous to use. How concerned about the products environmental impact are you?",
                                     options=slider_values,
                                     value=3,
-                                    format_func=stringify)
+                                    format_func=stringify,
+                                    help = 'These rating are decided using the Environmental Product Declarations and Health and Safety for each of the products tested')
 st.divider()
 slider_strings = ["Quick but short-lived", "Relatively quick but slightly short-lived", "Try to balance speed and longevity", "Quite slow and quite robust", "Very slow but durable"]
 application_slider = st.select_slider("Applying finishes can be a trade off between time and longevity. With that in mind would you like a quicker but less durable finish or a slower but more long-lasting one?",
                                     options=slider_values,
                                     value=3,
-                                    format_func=stringify)
+                                    format_func=stringify,
+                                    help = 'Finishing furniture can be a very labourious process. If you are running a community build session we would suggest using a quicker finish to avoid having to recoat after the event finishes')
 
 slider_list = [structure_slider, disassembly_slider, visual_slider, cost_slider, enviro_slider, application_slider]
 
@@ -154,7 +160,7 @@ elif winning_finish_index == 4:
 elif winning_finish_index == 5:
     winning_finish = "**Exterior grade wood varnish**"
 
-st.write("The best sheet material in your context is:",winning_material, "and it should be finished with:",winning_finish)
+st.text("The best sheet material in your context is:",winning_material, "and it should be finished with:",winning_finish)
 
 
 
