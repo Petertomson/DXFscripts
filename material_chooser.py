@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-st.set_page_config(page_title="Sheet material and finish helper")
+st.set_page_config(page_title="Sheet material and finish helper", page_icon="🔨")
 st.title('Sheet material and finish helper')
 
 st.write(
