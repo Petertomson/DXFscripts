@@ -163,6 +163,7 @@ elif winning_finish_index == 5:
 st.divider()
 
 st.write("The best sheet material in your context is:",winning_material, "and it should be finished with:",winning_finish)
+st.divider()
 st.caption('These outcomes are based on a series of on going tests conducted in Knowle West, Bristol. The following charts are visualisations of the scoring process so you can see the runners up.')
 
 
