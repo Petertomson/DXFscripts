@@ -31,7 +31,7 @@ if uploaded_file is not None:
         file_conversion_tag = ' converted to metric'
         material_units = '**Metric**'
         drawing_units = 'its original **Imperial**'
-        st.write('Converting to metric will scale your drawing by 25.4')
+        st.write('**Converting to metric will scale your drawing by 25.4**')
     elif measurement_bool == 'Imperial' and conversion_bool == 'No':
         measurement_tag = 'inches'
         ply_default = .75
@@ -47,7 +47,7 @@ if uploaded_file is not None:
         drawing_default = 18.0
         metric_to_imperial_toggle = 0.0394
         convert_factor = 0.0394
-        st.write('Converting to imperial will scale your drawing by 0.0394')
+        st.write('**Converting to imperial will scale your drawing by 0.0394**')
         file_conversion_tag = ' converted to imperial'
         material_units = '**Imperial**'
         drawing_units = 'its original **Metric**'
@@ -65,7 +65,7 @@ if uploaded_file is not None:
         drawing_default, 0.01, help = 'Friction joints are slots in the drawing designed to be knocked together with a mallet')
     st.divider()
 
-    ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01, help = 'SHeet material thickness can vary a lot even over one sheet! The ideal method is to measure your sheet material with calipers in several places and average the result')
+    ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01, help = 'Sheet material thickness can vary a lot even over one sheet! The ideal method is to measure your sheet material with calipers in several places and average the result')
 
 
     #Finish choices
