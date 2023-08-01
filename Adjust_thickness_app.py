@@ -16,7 +16,7 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
 if uploaded_file is not None:
     #After uploading ask the user for the values for their sheet material and drawing. The decimal input option
-    measurement_bool = st.selectbox('Is the file you are using in **Metric** or **Imperial** measurements', ('Metric','Imperial'),0)
+    measurement_bool = st.selectbox('Is the file you are using in **Metric** or **Imperial** measurements', ('Metric','Imperial'),0, help = 'Metric measurements are usually millimeters (mm) Imperial measurements are usually Inches \"\" ')
     if measurement_bool == 'Imperial':
         conversion_bool = st.selectbox('Would you like to convert it to metric?', ('Yes', 'No'), 1)
     else:
