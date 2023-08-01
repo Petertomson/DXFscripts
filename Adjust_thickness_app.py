@@ -16,7 +16,7 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
 if uploaded_file is not None:
     #After uploading ask the user for the values for their sheet material and drawing. The decimal input option
-    measurement_bool = st.selectbox('Is the file you are using in Metric or imperial measurements', ('Metric','Imperial'),0)
+    measurement_bool = st.selectbox('Is the file you are using in **Metric** or **Imperial** measurements', ('Metric','Imperial'),0)
     if measurement_bool == 'Imperial':
         conversion_bool = st.selectbox('Would you like to convert it to metric?', ('Yes', 'No'), 1)
     else:
@@ -61,8 +61,8 @@ if uploaded_file is not None:
         material_units = 'Metric'
         drawing_units = 'Metric'
     drawing_thickness = st.number_input(
-        'Enter the width of the slots in your drawing as a decimal in ' + drawing_units + ' measurements:', 0.0, 200.0,
-        drawing_default, 0.01)
+        'Enter the width of the friction joints in your drawing as a decimal in ' + drawing_units + ' measurements:', 0.0, 200.0,
+        drawing_default, 0.01, help = 'Friction joints are slots in the drawing designed to be knocked together with a mallet')
     st.divider()
 
     ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01)
@@ -83,7 +83,7 @@ if uploaded_file is not None:
     #elif finish_option == 'Varnish':
     #    finish_adjust = round(0.1 * metric_to_imperial_toggle,4)
     finish_adjust = 0
-    st.write('Your finish will add: ', finish_adjust, measurement_tag)
+    #st.write('Your finish will add: ', finish_adjust, measurement_tag)
     st.divider()
     custom_adjust_str = st.select_slider(
         'Customise the fit',
