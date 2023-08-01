@@ -174,8 +174,6 @@ material_data = pd.DataFrame({
 material_chart_min = min(material_total_list) - 2
 material_chart_max = max(material_total_list) + 2
 
-st.divider()
-
 st.altair_chart(alt.Chart(material_data).mark_bar(clip=True).encode(
     alt.X('Score', scale=alt.Scale(domain=(material_chart_min, material_chart_max))),
     y='Materials',
