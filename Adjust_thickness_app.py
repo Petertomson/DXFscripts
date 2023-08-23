@@ -2,7 +2,7 @@ import os
 import ezdxf
 import streamlit as st
 
-st.set_page_config(page_title="DXF Viewer", page_icon="📐")
+st.set_page_config(page_title="DXF Adjuster", page_icon="📐")
 st.title('DXF adjuster')
 
 st.write('This app is designed to help adjust drawings so friction joints are not too tight or too loose. To do this the app scales the drawing. Some of the values in the this script are visually rounded for brevity - this does not affect the accuracy.')
