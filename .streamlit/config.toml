@@ -4,4 +4,5 @@ backgroundColor="#ffffff"
 secondaryBackgroundColor="#e8eef9"
 textColor="#000000"
 font="sans serif"
-[server] enableXsrfProtection = false
+[server] 
+enableXsrfProtection = false
