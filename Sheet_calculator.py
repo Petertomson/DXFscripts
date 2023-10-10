@@ -32,7 +32,7 @@ rocking_sheets = 1
 hedgehog_sheets = 1
 library_sheets = 1
 
-bench_quant = st.number_input("Number of benches", value=int, placeholder=0)
+bench_quant = st.number_input("Number of benches", value=int, placeholder="0")
 table_quant = st.number_input("Number of tables", value=int, placeholder=0)
 chair_quant = st.number_input("Number of chairs", value=int, placeholder=0)
 rocking_quant = st.number_input("Number of rocking chairs", value=int, placeholder=0)
