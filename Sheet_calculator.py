@@ -108,6 +108,7 @@ if total_sheets != 0.0:
         st.write("The total area that needs finish is:",str(round(total_paintable,3)),"m2. Your chosen finish needs",str(coat_multiplier),"layers of finish")
     st.divider()
     st.write("**What follows is not a costing - it's just a ballpark figure of the price you can expect to pay.** It does not include the labour to apply finishes (it's more fun to have a painting party anyway!)")
+    st.divider()
     st.write("The raw materials should cost roughly between: £",str('%.2f' % lower_material_cost), "and £",str('%.2f' % upper_material_cost))
     st.write("Each piece of furniture takes roughly an hour to cut (highly dependant on the individual machine) with duplicates being slightly quicker. Expect to pay between £50 and £100 per hour to rent a CNC machine and operator.")
     if finish_select_str != "Unfinished" :
