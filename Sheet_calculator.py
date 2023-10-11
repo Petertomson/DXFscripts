@@ -111,7 +111,7 @@ if total_sheets != 0.0:
     st.write("The raw materials should cost roughly between: £",str('%.2f' % lower_material_cost), "and £",str('%.2f' % upper_material_cost))
     st.write("Each piece of furniture takes roughly an hour to cut (highly dependant on the individual machine) with duplicates being slightly quicker. Expect to pay between £50 and £100 per hour to rent a CNC machine and operator.")
     if finish_select_str != "Unfinished" :
-        st.write("Based on the advertised coverage of your finish choice you should need",str(round(total_paintable/(coat_coverage * 1.1)*coat_multiplier,3)),"litre(s) of finish. Which should cost somewhere between £",str('%.2f' % lower_paint_cost), "and £",str('%.2f' % upper_paint_cost), "This is the advertised coverage of the finish - most painters will use more than this amount.")
+        st.write("Based on the advertised coverage of your finish choice you should need",str(round(total_paintable/(coat_coverage * 1.1)*coat_multiplier,3)),"litre(s) of finish. Which should cost somewhere between £",str('%.0f' % lower_paint_cost), "and £",str('%.f' % upper_paint_cost), "This is the advertised coverage of the finish - most painters will use more than this amount.")
 #this not a costing
 #boundaries of cost
 #ex finishings
