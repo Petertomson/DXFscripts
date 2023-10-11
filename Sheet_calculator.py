@@ -102,8 +102,8 @@ upper_material_cost = total_material_cost + (1.2 * total_material_cost)
 lower_material_cost = total_material_cost + (0.8 * total_material_cost)
 
 
-if total_sheets != 0:
-    st.write("The total number of sheets required is:",str( total_sheets))
+if total_sheets != 0.0:
+    st.write("The total number of sheets required is:",str(total_sheets))
     st.write("The total area that needs finish is:",str(total_paintable),"m2. Your chosen finish needs",str(coat_multiplier),"layers of finish")
     st.divider()
     st.write("What follows is not a costing - it's just a ballpark figure of the price you can expect to pay. It does not include the cost of finishes and the labour to apply them (it's more fun to have a painting party anyway!)")
