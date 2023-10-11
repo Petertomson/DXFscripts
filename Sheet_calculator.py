@@ -94,12 +94,12 @@ total_sheets = (bench_sheets*bench_quant)+(table_sheets*table_quant)+(chair_shee
 total_paintable = (bench_paintable*bench_quant)+(table_paintable*table_quant)+(chair_paintable*chair_quant)+(rocking_paintable*rocking_quant)+(hedgehog_paintable*hedgehog_quant) + (library_paintable * library_quant) + (planter_paintable * planter_quant)
 
 total_paint_cost = total_paintable * finish_cost
-upper_paint_cost = total_paint_cost + (1.2 * total_paint_cost)
-lower_paint_cost = total_paint_cost + (0.8 * total_paint_cost)
+upper_paint_cost = 1.2 * total_paint_cost
+lower_paint_cost = 0.8 * total_paint_cost
 
 total_material_cost = material_cost * total_sheets
-upper_material_cost = total_material_cost + (1.2 * total_material_cost)
-lower_material_cost = total_material_cost + (0.8 * total_material_cost)
+upper_material_cost = 1.2 * total_material_cost
+lower_material_cost = 0.8 * total_material_cost
 
 
 if total_sheets != 0.0:
