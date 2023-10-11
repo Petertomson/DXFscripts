@@ -29,7 +29,7 @@ chair_paintable = 2.498
 rocking_paintable = 3.656
 hedgehog_paintable = 1.915
 library_paintable = 2.514
-planter_paintable = 1
+planter_paintable = 2.631
 
 bench_quant = st.number_input('Number of benches', min_value=0, max_value=10, value=0, step=1)
 table_quant = st.number_input("Number of tables", min_value=0, max_value=10, value=0, step=1)
