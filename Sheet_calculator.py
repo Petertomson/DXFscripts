@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 
-st.set_page_config(page_title="Sheet Material Calculator", page_icon="🔨")
+st.set_page_config(page_title="Sheet Material Calculator", page_icon="🖌️")
 st.title('Sheet Material Calculator')
 
 st.write(
