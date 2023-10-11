@@ -103,7 +103,7 @@ lower_material_cost = 0.8 * total_material_cost
 
 
 if total_sheets != 0.0:
-    st.write("The total number of sheets required is:",str(total_sheets))
+    st.write("The total number of 1220x2440mm sheets required is:",str(total_sheets))
     if finish_select_str != "Unfinished":
         st.write("The total area that needs finish is:",str(round(total_paintable,3)),"m2. Your chosen finish needs",str(coat_multiplier),"layers of finish")
     st.divider()
