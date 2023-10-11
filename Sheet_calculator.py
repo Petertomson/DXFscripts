@@ -21,6 +21,7 @@ chair_sheets = 1
 rocking_sheets = 1
 hedgehog_sheets = .5
 library_sheets = .5
+planter_sheets = 0.5
 
 bench_paintable = 3.523
 table_paintable = 1.805
@@ -28,6 +29,7 @@ chair_paintable = 2.498
 rocking_paintable = 3.656
 hedgehog_paintable = 1.915
 library_paintable = 2.514
+planter_paintable = 1
 
 bench_quant = st.number_input('Number of benches', min_value=0, max_value=10, value=0, step=1)
 table_quant = st.number_input("Number of tables", min_value=0, max_value=10, value=0, step=1)
@@ -35,6 +37,7 @@ chair_quant = st.number_input("Number of chairs", min_value=0, max_value=10, val
 rocking_quant = st.number_input("Number of rocking chairs", min_value=0, max_value=10, value=0, step=1)
 hedgehog_quant = st.number_input("Number of hedgehog houses", min_value=0, max_value=10, value=0, step=1)
 library_quant = st.number_input("Number of sharing libraries", min_value=0, max_value=10, value=0, step=1)
+planter_quant = st.number_input("Number of planters", min_value=0, max_value=10, value=0, step=1)
 
 
 material_select_str = st.radio(
@@ -87,8 +90,8 @@ elif finish_select_str == "Exterior varnish" :
     coat_multiplier = 2
     coat_coverage = 17
 
-total_sheets = (bench_sheets*bench_quant)+(table_sheets*table_quant)+(chair_sheets*chair_quant)+(rocking_sheets*rocking_quant)+(hedgehog_sheets*hedgehog_quant)+(library_sheets*library_quant)
-total_paintable = (bench_paintable*bench_quant)+(table_paintable*table_quant)+(chair_paintable*chair_quant)+(rocking_paintable*rocking_quant)+(hedgehog_paintable*hedgehog_quant)+(library_paintable*library_quant)
+total_sheets = (bench_sheets*bench_quant)+(table_sheets*table_quant)+(chair_sheets*chair_quant)+(rocking_sheets*rocking_quant) + (hedgehog_sheets * hedgehog_quant) + (library_sheets * library_quant + (planter_sheets * planter_quant))
+total_paintable = (bench_paintable*bench_quant)+(table_paintable*table_quant)+(chair_paintable*chair_quant)+(rocking_paintable*rocking_quant)+(hedgehog_paintable*hedgehog_quant) + (library_paintable * library_quant) + (planter_paintable * planter_quant)
 
 total_paint_cost = total_paintable * finish_cost
 upper_paint_cost = total_paint_cost + (1.2 * total_paint_cost)
@@ -106,7 +109,7 @@ st.divider()
 st.write("What follows is not a costing - it's just a ballpark figure of the price you can expect to pay. It does not include the cost of finishes and the labour to apply them (it's more fun to have a painting party anyway!)")
 st.write("The raw materials should cost roughly between: £",str('%.2f' % lower_material_cost), "and £",str('%.2f' % upper_material_cost))
 if finish_select_str != "Unfinished" :
-    st.write("Based on the advertised coverage of your finish choice you should need",str(round(total_paintable/coat_coverage*coat_multiplier,3)),"litre(s) of finish. Which should cost somewhere between £",str('%.2f' % lower_paint_cost), "and £",str('%.2f' % upper_paint_cost))
+    st.write("Based on the advertised coverage of your finish choice you should need",str(round(total_paintable/(coat_coverage * 1.1)*coat_multiplier,3)),"litre(s) of finish. This is the advertised coverage of the finish - most painters will use more than this amount. Which should cost somewhere between £",str('%.2f' % lower_paint_cost), "and £",str('%.2f' % upper_paint_cost))
 st.write("Each piece of furniture takes roughly an hour to cut (highly dependant on the individual machine) with duplicates being slightly quicker. Expect to pay between £50 and £100 per hour to rent a CNC machine.")
 #this not a costing
 #boundaries of cost
