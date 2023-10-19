@@ -67,7 +67,7 @@ if uploaded_file is not None:
     st.write('**Sheet material thickness can vary a lot even over one sheet! The ideal method is to measure your sheet material with calipers in several places and average the result**')
     ply_thickness = st.number_input(('Enter the thickness of the sheet material you are cutting as a decimal in ' + material_units + ' measurements:'), 0.0, 200.0, ply_default, 0.01, help = 'Sheet material thickness can vary a lot even over one sheet! The ideal method is to measure your sheet material with calipers in several places and average the result')
 
-    st.write('**Avoid splitting parts across different sheets as the various scaling might cause the friction joins not to fit!**')
+    st.write('**Avoid splitting parts across different sheets as the thickness scaling might cause the friction joins not to fit! Also take care when cutting multiple versions not to mix of parts that have been scaled differently.**')
 
     #Finish choices
     #finish_option = st.selectbox(
