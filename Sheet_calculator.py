@@ -49,7 +49,7 @@ material_select_str = st.radio(
 if material_select_str == "Structural plywood" :
     material_cost = 37.5
 elif material_select_str == "OSB" :
-    material_cost = 18.5
+    material_cost = 24
 elif material_select_str == "Marine plywood" :
     material_cost = 75
 elif material_select_str == "Spruce plywood" :
